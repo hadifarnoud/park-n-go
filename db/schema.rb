@@ -11,7 +11,123 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221163037) do
+ActiveRecord::Schema.define(:version => 20130103033836) do
+
+  create_table "addresses", :force => true do |t|
+    t.integer  "address_id"
+    t.string   "house_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "county"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "country"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "type"
+  end
+
+  create_table "bookings", :force => true do |t|
+    t.integer  "booking_id"
+    t.integer  "user_id"
+    t.integer  "transaction_id"
+    t.integer  "car_id"
+    t.datetime "drop_off"
+    t.datetime "pick_up"
+    t.string   "flight_inbound"
+    t.string   "flight_outbound"
+    t.string   "where_i_parked"
+    t.integer  "feedback_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "cars", :force => true do |t|
+    t.integer  "car_id"
+    t.integer  "user_id"
+    t.string   "car_make"
+    t.string   "car_model"
+    t.string   "car_colour"
+    t.integer  "car_year"
+    t.integer  "car_milage"
+    t.string   "car_picture"
+    t.date     "car_last_state_report"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "feedback_id"
+    t.string   "comment"
+    t.integer  "raiting"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "parking_branches", :force => true do |t|
+    t.integer  "branch_id"
+    t.integer  "company_id"
+    t.integer  "address_id"
+    t.string   "telephone"
+    t.string   "email"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.integer  "parking_id"
+    t.integer  "service_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "parking_companies", :force => true do |t|
+    t.integer  "company_id"
+    t.integer  "address_id"
+    t.string   "email"
+    t.string   "website"
+    t.string   "telephone"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "parking_parking_branches", :id => false, :force => true do |t|
+    t.integer "branch_id"
+    t.integer "parking_id"
+  end
+
+  add_index "parking_parking_branches", ["branch_id"], :name => "index_parking_parking_branches_on_branch_id"
+  add_index "parking_parking_branches", ["parking_id"], :name => "index_parking_parking_branches_on_parking_id"
+
+  create_table "parking_types", :force => true do |t|
+    t.integer  "parking_type_id"
+    t.string   "parking_type_name"
+    t.string   "parking_type_description"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  create_table "parkings", :force => true do |t|
+    t.integer  "parking_id"
+    t.integer  "parking_type_id"
+    t.integer  "price_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "picture_id"
+    t.string   "picture_path"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "prices", :force => true do |t|
+    t.integer  "price_id"
+    t.decimal  "price_amount"
+    t.string   "price_currency"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +139,27 @@ ActiveRecord::Schema.define(:version => 20121221163037) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "services", :force => true do |t|
+    t.integer  "service_id"
+    t.string   "service_name"
+    t.integer  "price_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "transaction_id"
+    t.integer  "user_id"
+    t.integer  "parking_id"
+    t.integer  "service_id"
+    t.integer  "branch_id"
+    t.string   "device"
+    t.string   "currency"
+    t.integer  "point"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -38,6 +175,12 @@ ActiveRecord::Schema.define(:version => 20121221163037) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.integer  "picture_id"
+    t.string   "vat_number"
+    t.string   "telephone"
+    t.string   "mobile"
+    t.integer  "booking_id"
+    t.integer  "address_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -114,6 +114,9 @@ GEM
     polyglot (0.3.3)
     quiet_assets (1.0.1)
       railties (~> 3.1)
+    rabl (0.7.9)
+      activesupport (>= 2.3.14)
+      multi_json (~> 1.0)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -210,6 +213,7 @@ DEPENDENCIES
   jquery-rails
   launchy (>= 2.1.2)
   quiet_assets (>= 1.0.1)
+  rabl
   rails (= 3.2.9)
   rolify (>= 3.2.0)
   rspec-rails (>= 2.11.4)
