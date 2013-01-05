@@ -6,6 +6,15 @@
   <%= f.input :email, :required => true %>
   <%= f.input :password, :required => true %>
   <%= f.input :password_confirmation, :required => true %>
+  <%= f.input :vat_number, :required => false %> 
+  <%= f.input :telephone, :required => false %>
+  <%= f.inputs :name => "Address", :for => :address do |address_form| %>
+	  <%= f.input :address1, :required => false %>
+	  <%= f.input :address2, :required => false %>
+	  <%= f.input :address3, :required => false %>
+	  <%= f.input :city, :required => false %>
+  <% end %>
+
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
 <% end %>
 <%= render "devise/shared/links" %>
