@@ -7,6 +7,17 @@
   <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
   <%= f.input :password_confirmation, :required => false %>
   <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+  <%= f.input :vat_number, :required => false %> 
+  <%= f.input :telephone, :required => false %>
+	 <%= f.simple_fields_for :addresses do |a| %>
+	 <%= a.input :address1 %>
+	 <%= a.input :address2, :required => false %>
+	 <%= a.input :address3, :required => false %>
+	 <%= a.input :city %>
+	 <%= a.input :county %>
+	 <%= a.input :postcode %>
+	 <%= a.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
+<% end %>
   <%= f.button :submit, 'Update', :class => 'btn-primary' %>
 <% end %>
 <h3>Cancel my account</h3>
