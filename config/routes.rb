@@ -1,4 +1,25 @@
 ParkNGo::Application.routes.draw do
+  get "parking_company/index"
+
+  get "parking_company/show"
+
+  get "parking_company/new"
+  
+  get "parking_company/update"
+
+  get "parking_company/destroy"
+
+  get "parking_branch/index"
+
+  get "parking_branch/show"
+  
+  get "parking_branch/new"
+  
+  get "parking_branch/update"
+
+  get "parking_branch/destroy"
+
+
   authenticated :user do
     root :to => 'home#index'
   end

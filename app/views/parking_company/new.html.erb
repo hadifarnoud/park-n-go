@@ -1,0 +1,23 @@
+<h1>New Company</h1>
+
+<%= simple_form_for @parking_company do |f| %>
+  <%= f.error_notification %>
+  <%= display_base_errors resource %>
+  <%= f.input :company_name %>
+  <%= f.input :email %>
+  <%= f.input :telephone %>
+  <%= f.input :website %>
+  <%= f.input :description %>
+  <%= f.input :telephone, :required => false %>
+	 <%= f.simple_fields_for :addresses do |a| %>
+	 <%= a.input :address1 %>
+	 <%= a.input :address2, :required => false %>
+	 <%= a.input :address3, :required => false %>
+	 <%= a.input :city %>
+	 <%= a.input :county %>
+	 <%= a.input :postcode %>
+	 <%= a.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to 'Back', parking_companies_path %>
