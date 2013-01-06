@@ -2,7 +2,6 @@
 
 <%= simple_form_for @parking_company do |f| %>
   <%= f.error_notification %>
-  <%= display_base_errors resource %>
   <%= f.input :company_name %>
   <%= f.input :email %>
   <%= f.input :telephone %>
@@ -17,7 +16,7 @@
 	 <%= a.input :county %>
 	 <%= a.input :postcode %>
 	 <%= a.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
-  <% end %>
+  <% end %><br/>
   <%= f.button :submit %>
 <% end %>
 <%= link_to 'Back', parking_companies_path %>
