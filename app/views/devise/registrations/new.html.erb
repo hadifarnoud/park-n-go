@@ -9,15 +9,7 @@
   <h3>more information</h3>
   <%= f.input :vat_number, :required => false %> 
   <%= f.input :telephone, :required => false %>
-	 <%= f.simple_fields_for :addresses do |a| %>
-	 <%= a.input :address1 %>
-	 <%= a.input :address2, :required => false %>
-	 <%= a.input :address3, :required => false %>
-	 <%= a.input :city %>
-	 <%= a.input :county %>
-	 <%= a.input :postcode %>
-	 <%= a.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
-  <% end %>
+  <%= render :partial => "shared/address",:locals=>{ :f => f }  %>
 
 
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>

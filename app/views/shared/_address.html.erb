@@ -1,0 +1,9 @@
+<%= f.simple_fields_for :addresses do |a| %>
+	 <%= a.input :address1 %>
+	 <%= a.input :address2, :required => false %>
+	 <%= a.input :address3, :required => false %>
+	 <%= a.input :city %>
+	 <%= a.input :county %>
+	 <%= a.input :postcode %>
+	 <%= a.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
+<% end %>
