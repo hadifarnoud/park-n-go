@@ -1,4 +1,4 @@
-class ParkingBranchController < ApplicationController
+class ParkingBranchesController < ApplicationController
   def index
   end
 

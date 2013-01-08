@@ -1,17 +1,21 @@
 ParkNGo::Application.routes.draw do
-  # get "parking_company/index"
-  match '/company', to: 'parking_company#index'
 
-  # get "parking_company/show"
-  match '/company/show', to: 'parking_company#show'
-
-  # get "parking_company/new"
-  match '/company/add', to: 'parking_company#new'
+  resources :parking_companies
+  resources :parking_branches
   
-  # get "parking_company/update"
-  match '/company/update', to: 'parking_company#update'
+  # get "parking_companies/index"
+  match '/company', to: 'parking_companies#index'
 
-  get "parking_company/destroy"
+  # get "parking_companies/show"
+  match '/company/show', to: 'parking_companies#show'
+
+  # get "parking_companies/new"
+  match '/company/add', to: 'parking_companies#new'
+  
+  # get "parking_companies/update"
+  match '/company/update', to: 'parking_companies#update'
+
+  get "parking_companies/destroy"
 
   get "parking_branch/index"
 
@@ -32,6 +36,5 @@ ParkNGo::Application.routes.draw do
 
   devise_for :users, :path_names => { :sign_up => "register" }, :path_names => { :sign_in => "login" }
   resources :users
-  resources :parking_companies
-  # resources :parking_branches
+
 end
