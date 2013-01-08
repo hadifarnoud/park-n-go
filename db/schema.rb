@@ -11,22 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106184754) do
-
-  create_table "addresses", :force => true do |t|
-    t.integer  "address_id"
-    t.string   "house_name"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "address3"
-    t.string   "county"
-    t.string   "city"
-    t.string   "postcode"
-    t.string   "country"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "type"
-  end
+ActiveRecord::Schema.define(:version => 20130108203501) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "booking_id"
@@ -65,9 +50,7 @@ ActiveRecord::Schema.define(:version => 20130106184754) do
   end
 
   create_table "parking_branches", :force => true do |t|
-    t.integer  "branch_id"
     t.integer  "company_id"
-    t.integer  "address_id"
     t.string   "telephone"
     t.string   "email"
     t.float    "longitude"
@@ -76,11 +59,16 @@ ActiveRecord::Schema.define(:version => 20130106184754) do
     t.integer  "service_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "city"
+    t.string   "county"
+    t.string   "postcode"
+    t.string   "country"
   end
 
   create_table "parking_companies", :force => true do |t|
-    t.integer  "company_id"
-    t.integer  "address_id"
     t.string   "email"
     t.string   "website"
     t.string   "telephone"
@@ -88,6 +76,13 @@ ActiveRecord::Schema.define(:version => 20130106184754) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "company_name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "city"
+    t.string   "county"
+    t.string   "postcode"
+    t.string   "country"
   end
 
   create_table "parking_parking_branches", :id => false, :force => true do |t|

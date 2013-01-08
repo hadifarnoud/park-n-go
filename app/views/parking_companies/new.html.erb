@@ -7,14 +7,12 @@
   <%= f.input :website %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 3 } %>
   <%= f.input :telephone, :required => false %>
-	 <%= f.simple_fields_for :addresses do |a| %>
-	 <%= a.input :address1 %>
-	 <%= a.input :address2, :required => false %>
-	 <%= a.input :address3, :required => false %>
-	 <%= a.input :city %>
-	 <%= a.input :county %>
-	 <%= a.input :postcode %>
-	 <%= a.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
-  <% end %><br/>
+  <%= f.input :address1 %>
+  <%= f.input :address2, :required => false %>
+  <%= f.input :address3, :required => false %>
+  <%= f.input :city %>
+  <%= f.input :county %>
+  <%= f.input :postcode %>
+  <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
   <%= f.button :submit, 'Create new company', :class => 'btn-primary' %>
 <% end %>
