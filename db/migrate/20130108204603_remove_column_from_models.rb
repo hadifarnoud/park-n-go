@@ -6,6 +6,7 @@ class RemoveColumnFromModels < ActiveRecord::Migration
   	remove_column :parkings, :parking_id
   	remove_column :parking_types, :parking_type_id
   	remove_column :pictures, :picture_id
+  	add_column :parking_companies, :airport, :string
   end
 
   def down
@@ -14,5 +15,6 @@ class RemoveColumnFromModels < ActiveRecord::Migration
   	add_column :feedbacks, :feedback_id, :integer
   	add_column :parking_types, :parking_type_id, :integer
   	add_column :pictures, :picture_id, :integer
+  	remove_column :parking_companies, :airport
   end
 end
