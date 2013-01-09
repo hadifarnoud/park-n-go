@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Park N Go" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <%= yield :carousel_style %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -21,8 +22,8 @@
     </div>
     <%= yield :carousel %>
     <div id="main" role="main">
-      <div class="container-fluid">
-        <div class="content">
+      <div class="container">
+        <div class="content white">
            <div class="row">
             <div class="span12">
               <%= render 'layouts/messages' %>
