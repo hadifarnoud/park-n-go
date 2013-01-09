@@ -1,8 +1,12 @@
 class ParkingCompaniesController < ApplicationController
 
   def index
-    authorize! :index, @parking_company, :message => 'Not authorized as an administrator.'
-    @parking_companies = ParkingCompany.all
+    authorize! :index, @parking_company, :message => 'Not authorized as an administrator.' #review for Devise and CanCan
+      if params[:company_name]
+        @parking_companies = ParkingCompany.where(:company_name => params[:company_name])
+      else
+      @parking_companies = ParkingCompany.all
+    end
   end
 
   def show
