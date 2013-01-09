@@ -1,0 +1,16 @@
+<%= simple_form_for [@parking_company] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :company_name, :required => true %>
+  <%= f.input :email, :required => true %>
+  <%= f.input :website %>
+  <%= f.input :description, :as => :text, :input_html => { :rows => 3 } %>
+  <%= f.input :telephone, :required => false %>
+  <%= f.input :address1 %>
+  <%= f.input :address2, :required => false %>
+  <%= f.input :address3, :required => false %>
+  <%= f.input :city %>
+  <%= f.input :county %>
+  <%= f.input :postcode %>
+  <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
+  <br /><%= f.button :submit, 'Submit Company', :class => 'btn-primary' %>
+<% end %>

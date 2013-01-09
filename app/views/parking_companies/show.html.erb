@@ -10,4 +10,5 @@
     <li><i class="icon-envelope"><%= @parking_company.address1 %><br /><%= @parking_company.address2 %><br /><%= @parking_company.address3 %><br /><%= @parking_company.city %><br /><%= @parking_company.county %><br /><%= @parking_company.postcode %><br /><%= @parking_company.country %></i></li>
     <li><i class="icon-envelope">@parking_company.airport</i></li>
 </ul>
+<%= link_to 'Edit Company', edit_parking_company_path(@parking_company.id), :class => "btn btn-large btn-primary" %>
 </div>
