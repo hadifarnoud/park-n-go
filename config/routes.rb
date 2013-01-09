@@ -4,7 +4,7 @@ ParkNGo::Application.routes.draw do
   # get "parking_companies/index" custom route all_companies_path 
   # match '/parking_companies' => redirect('/company')
   match '/company', to: 'parking_companies#index', :as => "all_companies" 
-  # match '/company/:company_name', to: 'parking_companies#index', :as => "company_by_name" 
+  match '/company/:company_name', to: 'parking_companies#index', :as => "company_by_name" 
   
   # get "parking_companies/show" custom route show_company_path
   match '/company/show/:company_name', to: 'parking_companies#show', :as => "show_company"
