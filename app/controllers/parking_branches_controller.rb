@@ -2,7 +2,7 @@ class ParkingBranchesController < ApplicationController
   def index
     authorize! :index, @parking_branch, :message => 'Not authorized as an administrator.' #review for Devise and CanCan
       @parking_branches = ParkingBranch.all
-    end
+    
   end
 
   def show
