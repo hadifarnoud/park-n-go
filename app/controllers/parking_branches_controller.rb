@@ -9,6 +9,7 @@ class ParkingBranchesController < ApplicationController
     end
   end
 
+
   def show
     @parking_branch = ParkingBranch.find(params[:id])
   end

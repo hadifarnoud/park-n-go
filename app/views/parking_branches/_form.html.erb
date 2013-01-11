@@ -1,0 +1,17 @@
+<%= simple_form_for [@parking_branch] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :branch_name, :required => true %>
+  <%= f.input :email, :required => true %>
+  <%= f.input :telephone, :required => false %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <%= f.input :airport, :required => true %>
+  <%= f.input :address1 %>
+  <%= f.input :address2, :required => false %>
+  <%= f.input :address3, :required => false %>
+  <%= f.input :city %>
+  <%= f.input :county %>
+  <%= f.input :postcode %>
+  <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
+  <br /><%= f.button :submit, 'Submit Company', :class => 'btn-primary' %>
+<% end %>

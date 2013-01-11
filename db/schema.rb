@@ -11,10 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108203501) do
+ActiveRecord::Schema.define(:version => 20130111154448) do
 
   create_table "bookings", :force => true do |t|
-    t.integer  "booking_id"
     t.integer  "transaction_id"
     t.integer  "car_id"
     t.datetime "drop_off"
@@ -28,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
   end
 
   create_table "cars", :force => true do |t|
-    t.integer  "car_id"
     t.integer  "user_id"
     t.string   "car_make"
     t.string   "car_model"
@@ -42,11 +40,10 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
   end
 
   create_table "feedbacks", :force => true do |t|
-    t.integer  "feedback_id"
     t.string   "comment"
     t.integer  "raiting"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "parking_branches", :force => true do |t|
@@ -57,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
     t.float    "latitude"
     t.integer  "parking_id"
     t.integer  "service_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "address1"
     t.string   "address2"
     t.string   "address3"
@@ -66,6 +63,8 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
     t.string   "county"
     t.string   "postcode"
     t.string   "country"
+    t.string   "airport"
+    t.string   "branch_name"
   end
 
   create_table "parking_companies", :force => true do |t|
@@ -83,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
     t.string   "county"
     t.string   "postcode"
     t.string   "country"
+    t.string   "airport"
   end
 
   create_table "parking_parking_branches", :id => false, :force => true do |t|
@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
   add_index "parking_parking_branches", ["parking_id"], :name => "index_parking_parking_branches_on_parking_id"
 
   create_table "parking_types", :force => true do |t|
-    t.integer  "parking_type_id"
     t.string   "parking_type_name"
     t.string   "parking_type_description"
     t.datetime "created_at",               :null => false
@@ -102,7 +101,6 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
   end
 
   create_table "parkings", :force => true do |t|
-    t.integer  "parking_id"
     t.integer  "parking_type_id"
     t.integer  "price_id"
     t.datetime "created_at",      :null => false
@@ -110,7 +108,6 @@ ActiveRecord::Schema.define(:version => 20130108203501) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.integer  "picture_id"
     t.string   "picture_path"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
