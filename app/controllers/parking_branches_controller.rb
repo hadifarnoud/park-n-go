@@ -6,6 +6,7 @@ class ParkingBranchesController < ApplicationController
       redirect_to add_parking_branch_path, notice: "No Parking Brnach!. please add one"
     else
       render :index
+    end
   end
 
   def show
