@@ -1,10 +1,11 @@
-<%= simple_form_for [@parking_branch] do |f| %>
-  <%= f.error_notification %>
+<%= semantic_form_for @parking_branch do |f| %>
+  <%= f.semantic_errors %>
+  <%= f.input :parking_company_id, :as => :select, :collection => Hash[ParkingCompany.all.map {|c| [c.company_name,c.id]}], :required => true %>
   <%= f.input :branch_name, :required => true %>
   <%= f.input :email, :required => true %>
   <%= f.input :telephone, :required => false %>
-  <%= f.input :latitude %>
-  <%= f.input :longitude %>
+  <%= f.input :latitude, :hint =>"Automatically filled based on address" %>
+  <%= f.input :longitude, :hint =>"Automatically filled based on address" %>
   <%= f.input :airport, :required => true %>
   <%= f.input :address1 %>
   <%= f.input :address2, :required => false %>
@@ -13,5 +14,6 @@
   <%= f.input :county %>
   <%= f.input :postcode %>
   <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
-  <br /><%= f.button :submit, 'Submit Company', :class => 'btn-primary' %>
+  <br /><%= f.action :submit, :button_html => {:label => 'Submit Company', :class => 'btn-primary', :disable_with => 'Wait...' } %>
+  
 <% end %>

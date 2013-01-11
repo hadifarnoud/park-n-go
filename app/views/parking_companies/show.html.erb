@@ -9,5 +9,8 @@
     <li><i class="icon-envelope"><%= @parking_company.website %></i></li>
     <li><i class="icon-envelope"><%= @parking_company.address1 %><br /><%= @parking_company.address2 %><br /><%= @parking_company.address3 %><br /><%= @parking_company.city %><br /><%= @parking_company.county %><br /><%= @parking_company.postcode %><br /><%= @parking_company.country %></i></li>
 </ul>
+<div class="branch-list">
+<%= render :partial => 'company_branches' %>
+</div>
 <%= link_to 'Edit Company', edit_parking_company_path(@parking_company.id), :class => "btn btn-large btn-primary" %>
 </div>

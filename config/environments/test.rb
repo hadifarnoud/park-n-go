@@ -37,5 +37,7 @@ ParkNGo::Application.configure do
   
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'example.com' }
+  #formtastic
+  config.gem 'formtastic', :source => 'http://gemcutter.org'
 
 end

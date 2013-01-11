@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111154448) do
+ActiveRecord::Schema.define(:version => 20130111172513) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "transaction_id"
@@ -47,15 +47,15 @@ ActiveRecord::Schema.define(:version => 20130111154448) do
   end
 
   create_table "parking_branches", :force => true do |t|
-    t.integer  "company_id"
+    t.integer  "parking_company_id"
     t.string   "telephone"
     t.string   "email"
     t.float    "longitude"
     t.float    "latitude"
     t.integer  "parking_id"
     t.integer  "service_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "address1"
     t.string   "address2"
     t.string   "address3"

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :parking_company do
-    company_id 1
+    parking_company_id 1
     address_id 1
     email "MyString"
     website "MyString"

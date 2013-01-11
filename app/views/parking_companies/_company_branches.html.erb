@@ -1,0 +1,17 @@
+	<h4>Branches</h4>
+	<table class="table table-striped"> <!--move this to controller-->
+		<thead>
+                <tr>
+                  <th>Branch name</th>
+                  <th>Parking</th>
+                </tr>
+        </thead>
+    <tbody>
+		<% @parking_company.parking_branches.each do |b| %>
+		<tr>
+			<td><%= link_to b.branch_name, show_company_branch_path(b.id) %></td>
+			<td><%= b.airport %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,5 +1,6 @@
-<h1><%= @parking_branch.branch_name %></h1>
-<p><%= @parking_branch.airport %></p>
+<h1>Branch: <%= @parking_branch.branch_name %></h1>
+<h3>Company: <%= @parking_branch.parking_company.company_name %></h3>
+<p>Airport: <%= @parking_branch.airport %></p>
 
 
 <div class="info">
@@ -9,6 +10,7 @@
     <li><i class="icon-envelope"><%= @parking_branch.airport %></i></li>
     <li><i class="icon-envelope"><%= @parking_branch.address1 %><br /><%= @parking_branch.address2 %><br /><%= @parking_branch.address3 %><br /><%= @parking_branch.city %><br /><%= @parking_branch.county %><br /><%= @parking_branch.postcode %><br /><%= @parking_branch.country %></i></li>
 </ul>
-<%= link_to 'Edit Branch', edit_parking_branch_path(@parking_branch.id), :class => "btn btn-large btn-primary" %>
 <div class="map"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@parking_branch.latitude}%2C#{@parking_branch.longitude}" %></div>
+<%= link_to 'Edit Branch', edit_parking_branch_path(@parking_branch.id), :class => "btn btn-large btn-primary" %>
+
 </div>

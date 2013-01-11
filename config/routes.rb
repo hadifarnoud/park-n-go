@@ -24,11 +24,12 @@ ParkNGo::Application.routes.draw do
 
   get "parking_branch/index"
 
-  get "parking_branch/show"
+  # get "parking_branch/show"
+  match '/company/branch/:id', to: 'parking_branches#show', :as => "show_company_branch"
   
   # get "parking_branch/new"
   match '/company/branch/add', to: 'parking_branches#new', :as => "add_parking_branch"
-  
+
   #pass the id to path edit_parking_branch_path(id)
   match '/company/branch/edit/:id', to: 'parking_branches#edit', :as => "edit_parking_branch"
   
