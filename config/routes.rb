@@ -12,10 +12,10 @@ ParkNGo::Application.routes.draw do
   # match '/company/show/:id', to: 'parking_companies#show', :as => "show_company_by_id"
 
   # get "parking_companies/new"
-  match '/company/add', to: 'parking_companies#new', :as => ""
+  match '/company/add', to: 'parking_companies#new', :as => "add_parking_company"
   
   # get "parking_companies/update"
-  match '/company/update', to: 'parking_companies#update', :as => ""
+  # match '/company/update', to: 'parking_companies#update', :as => ""
 
   # get "edit_parking_company" => parking_companies#edit custom route edit_parking_company_path
   match '/company/edit/:id', to: 'parking_companies#edit', :as => "edit_parking_company"
@@ -26,7 +26,8 @@ ParkNGo::Application.routes.draw do
 
   get "parking_branch/show"
   
-  get "parking_branch/new"
+  # get "parking_branch/new"
+  match '/parking_branch/add', to: 'parking_branches#new', :as => "add_parking_branch"
   
   get "parking_branch/update"
 
