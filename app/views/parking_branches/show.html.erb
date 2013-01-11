@@ -1,5 +1,5 @@
 <h1>Branch: <%= @parking_branch.branch_name %></h1>
-<h3>Company: <%= @parking_branch.parking_company.company_name %></h3>
+<h3>Company: <%= link_to @parking_branch.parking_company.company_name, show_company_path(@parking_branch.parking_company.company_name) %></h3>
 <p>Airport: <%= @parking_branch.airport %></p>
 
 
