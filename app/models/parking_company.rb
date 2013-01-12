@@ -10,7 +10,6 @@ class ParkingCompany < ActiveRecord::Base
   validates :city, :presence => true
   validates :postcode, :presence => true
   validates :country, :presence => true
-  validates :airport, :presence => true
 
   def full_address
     "#{address1}, #{address2}, #{address3}, #{city}, #{county}, #{postcode}, #{country}"
