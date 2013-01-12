@@ -1,2 +1,19 @@
-<h1>ParkingBranch#index</h1>
-<p>Find me in app/views/parking_branch/index.html.erb</p>
+<h1>Parking Branches</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Branch name</th>
+			<th>Parking</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @parking_branches.each do |i| %>
+			<tr>
+				<td><%= link_to i.branch_name, show_company_branch_path(i.id) %></td>
+				<td><%= i.airport %></td>
+				<td>PLACEHOLDER</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

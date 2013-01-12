@@ -13,6 +13,7 @@ class ParkingCompaniesController < ApplicationController
   def show
       if params[:company_name]
           @parking_company = ParkingCompany.where(:company_name => params[:company_name]).first
+          
       else
         @parking_company = ParkingCompany.find(params[:id])
         # redirect_to(ParkingCompany.find(params[:id])) unless @parking_company = ParkingCompany.find_by_name(params[:id])

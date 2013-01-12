@@ -1,5 +1,5 @@
 	<h4>Branches</h4>
-	<table class="table table-striped"> <!--move this to controller-->
+	<table class="table table-striped"> 
 		<thead>
                 <tr>
                   <th>Branch name</th>
@@ -7,6 +7,7 @@
                 </tr>
         </thead>
     <tbody>
+    	<%= @parking_company.inspect %> #remove airport from company
 		<% @parking_company.parking_branches.each do |b| %>
 		<tr>
 			<td><%= link_to b.branch_name, show_company_branch_path(b.id) %></td>

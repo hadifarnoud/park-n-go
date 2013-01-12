@@ -1,5 +1,6 @@
-<%= semantic_form_for @parking_branch do |f| %>
-  <%= f.semantic_errors %>
+<%= simple_form_for @parking_branch do |f| %>
+   <!--f.semantic_errors-->
+  <%= f.error_notification %>
   <%= f.input :parking_company_id, :as => :select, :collection => Hash[ParkingCompany.all.map {|c| [c.company_name,c.id]}], :required => true %>
   <%= f.input :branch_name, :required => true %>
   <%= f.input :email, :required => true %>
@@ -14,6 +15,7 @@
   <%= f.input :county %>
   <%= f.input :postcode %>
   <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
-  <br /><%= f.action :submit, :button_html => {:label => 'Submit Company', :class => 'btn-primary', :disable_with => 'Wait...' } %>
+  <br /> <!--f.action :submit, :button_html => {:label => 'Submit Company', :class => 'btn-primary', :disable_with => 'Wait...' }-->
+  <%= f.button :submit, 'Submit Branch', :class => 'btn-primary' %>
   
 <% end %>

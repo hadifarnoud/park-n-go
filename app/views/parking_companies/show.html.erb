@@ -4,10 +4,10 @@
 
 <div class="info">
 <ul class="nav nav-tabs nav-stacked">
-	<li><i class="icon-book"><%= @parking_company.telephone %></i></li>
-    <li><i class="icon-envelope"><%= @parking_company.email %></i></li>
-    <li><i class="icon-envelope"><%= @parking_company.website %></i></li>
-    <li><i class="icon-envelope"><%= @parking_company.address1 %><br /><%= @parking_company.address2 %><br /><%= @parking_company.address3 %><br /><%= @parking_company.city %><br /><%= @parking_company.county %><br /><%= @parking_company.postcode %><br /><%= @parking_company.country %></i></li>
+	<i class="icon-book icon-fix"></i><li><%= @parking_company.telephone %></li>
+    <i class="icon-envelope icon-fix"></i><li><%= @parking_company.email %></li>
+    <i class="icon-globe icon-fix"></i><li><%= @parking_company.website %></li>
+    <i class="icon-road icon-fix"></i><li><%= @parking_company.full_address %></li>
 </ul>
 <div class="branch-list">
 <%= render :partial => 'company_branches' %>

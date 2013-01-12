@@ -4,11 +4,19 @@ ParkNGo::Application.routes.draw do
   match '/company/add', to: 'parking_companies#new', :as => "add_parking_company"
   # get "parking_branch/new"
   match '/company/branch/add', to: 'parking_branches#new', :as => "add_parking_branch"
+   # get "parking_branch/show"
+  match '/company/branch/:id', to: 'parking_branches#show', :as => "show_company_branch"
+    # get "edit_parking_company" => parking_companies#edit custom route edit_parking_company_path
+  match '/company/edit/:id', to: 'parking_companies#edit', :as => "edit_parking_company"
   # get "parking_companies/index" custom route all_companies_path 
   match '/company', to: 'parking_companies#index', :as => "all_companies" 
 
+  match '/company/show' => redirect('/company')
   # match '/parking_companies' => redirect('/company')
-  match '/company/:company_name', to: 'parking_companies#index', :as => "company_by_name" 
+
+
+  # branch_by_airport_path(:airport)
+  match '/airport/:airport', to: 'parking_branches#index', :as => "branch_by_airport" 
 
   get "parking_companies/destroy"
 
@@ -17,24 +25,24 @@ ParkNGo::Application.routes.draw do
   get "parking_branches/update"
 
   get "parking_branches/destroy"
-  
+
+
   # get "parking_companies/show" custom route show_company_path
+
   match '/company/show/:company_name', to: 'parking_companies#show', :as => "show_company"
   # match '/parking_companies/:id' => redirect('/company/show/%{id}')
   # match '/company/show/:id', to: 'parking_companies#show', :as => "show_company_by_id"
 
-
+  match '/company/:company_name', to: 'parking_companies#index', :as => "company_by_name" 
   
   # get "parking_companies/update"
   # match '/company/update', to: 'parking_companies#update', :as => ""
 
-  # get "edit_parking_company" => parking_companies#edit custom route edit_parking_company_path
-  match '/company/edit/:id', to: 'parking_companies#edit', :as => "edit_parking_company"
 
 
 
-  # get "parking_branch/show"
-  match '/company/branch/:id', to: 'parking_branches#show', :as => "show_company_branch"
+
+ 
   
 
 
