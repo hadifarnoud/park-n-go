@@ -5,10 +5,10 @@
 
 <div class="info">
 <ul class="nav nav-tabs nav-stacked">
-	<i class="icon-book icon-fix"><li><%= @parking_branch.telephone %></i></li>
-    <i class="icon-envelope icon-fix"><li><%= @parking_branch.email %></i></li>
-    <i class="icon-plane icon-fix"><li><%= @parking_branch.airport %></i></li>
-    <i class="icon-road icon-fix"><li><%= @parking_branch.full_address %></i></li>
+	<i class="icon-book icon-fix"></i><li><%= @parking_branch.telephone %></li>
+    <i class="icon-envelope icon-fix"></i><li><%= @parking_branch.email %></li>
+    <i class="icon-plane icon-fix"></i><li><%= @parking_branch.airport %></li>
+    <i class="icon-road icon-fix"></i><li><%= @parking_branch.full_address %></li>
 </ul>
 <div class="map"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@parking_branch.latitude}%2C#{@parking_branch.longitude}" %></div>
 <%= link_to 'Edit Branch', edit_parking_branch_path(@parking_branch.id), :class => "btn btn-large btn-primary" %>
