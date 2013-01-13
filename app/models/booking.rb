@@ -3,4 +3,8 @@ class Booking < ActiveRecord::Base
   belongs_to :transaction
   belongs_to :feedback
   belongs_to :car
+
+  validates :drop_off, :presence => true
+  validates :pick_up, :presence => true
+
 end

@@ -17,4 +17,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :transactions
   accepts_nested_attributes_for :cars
+
+  validates :mobile, :presence => true, :uniqueness => true
 end
