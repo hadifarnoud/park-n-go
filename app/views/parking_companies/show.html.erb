@@ -12,5 +12,7 @@
 <div class="branch-list">
 <%= render :partial => 'company_branches' %>
 </div>
-<%= link_to 'Edit Company', edit_parking_company_path(@parking_company.id), :class => "btn btn-large btn-primary" %>
+<% if can? :update, @parking_company %>
+	<%= link_to 'Edit Company', edit_parking_company_path(@parking_company.id), :class => "btn btn-large btn-primary" %>
+<% end %>
 </div>

@@ -1,7 +1,7 @@
 class ParkingCompaniesController < ApplicationController
-
+  load_and_authorize_resource #cancan
   def index
-    authorize! :index, @parking_company, :message => 'Not authorized as an administrator.' #review for Devise and CanCan
+    # authorize! :index, @parking_company, :message => 'Not authorized as an administrator.' #review for Devise and CanCan
       if params[:company_name]
         @parking_companies = ParkingCompany.where(:company_name => params[:company_name]).first
         @parking_branches = @parking_companies.parking_branches

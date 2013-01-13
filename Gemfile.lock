@@ -99,11 +99,6 @@ GEM
       rails (~> 3.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
-    formtastic-plus-bootstrap (1.1.4)
-      bootstrap-sass (~> 2.2.2)
-      formtastic (~> 2.2)
-      railties (>= 3.1.0)
-      sass-rails
     geocoder (1.1.6)
     gherkin (2.11.5)
       json (>= 1.4.6)
@@ -230,7 +225,6 @@ DEPENDENCIES
   factory_girl_rails (>= 4.1.0)
   figaro (>= 0.5.2)
   formtastic
-  formtastic-plus-bootstrap (>= 1.1.4)
   geocoder
   going_postal
   hub (>= 1.10.2)

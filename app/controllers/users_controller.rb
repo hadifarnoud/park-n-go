@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user! #update to CanCan
+  # before_filter :authenticate_user! #update to CanCan
   respond_to :json, :xml
 
   def index
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user], :as => :admin)
+    if @user.update_attributes(params[:user], :as => :customer)
       redirect_to users_path, :notice => "User updated."
     else
       redirect_to users_path, :alert => "Unable to update user."

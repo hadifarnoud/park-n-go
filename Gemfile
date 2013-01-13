@@ -30,5 +30,5 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem 'rabl'
 gem 'country_select'
 gem 'formtastic'
-gem "formtastic-plus-bootstrap" ,">= 1.1.4"
+# gem "formtastic-plus-bootstrap" ,">= 1.1.4"
 gem 'going_postal'

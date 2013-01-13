@@ -2,13 +2,11 @@
 
 FactoryGirl.define do
   factory :address do
-    address_id 1
-    house_name "MyString"
     address1 "MyString"
     address2 "MyString"
     address3 "MyString"
-    county "MyString"
     city "MyString"
+    county "MyString"
     postcode "MyString"
     country "MyString"
   end

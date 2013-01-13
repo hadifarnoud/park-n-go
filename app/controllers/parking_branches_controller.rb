@@ -1,6 +1,7 @@
 class ParkingBranchesController < ApplicationController
+  load_and_authorize_resource #cancan
   def index
-    authorize! :index, @parking_branch, :message => 'Not authorized as an administrator.' #review for Devise and CanCan
+    # authorize! :index, @parking_branch, :message => 'Not authorized as an administrator.' #review for Devise and CanCan
     if params[:airport]
       # @parking_branches = ParkingBranch.where(:airport => params[:airport]).first
       @parking_branches = ParkingBranch.where(airport: params[:airport])
