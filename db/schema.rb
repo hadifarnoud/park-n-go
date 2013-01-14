@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114030913) do
+ActiveRecord::Schema.define(:version => 20130114033948) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -184,7 +184,6 @@ ActiveRecord::Schema.define(:version => 20130114030913) do
     t.string   "telephone"
     t.string   "mobile"
     t.integer  "booking_id"
-    t.integer  "address_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
