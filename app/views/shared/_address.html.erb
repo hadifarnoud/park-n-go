@@ -1,4 +1,7 @@
-<%= f.simple_fields_for :address do |a| %>
+<%  %>
+
+<%= f.simple_fields_for :addresses do |a| %>
+<% Rails.logger.debug { "******** inside address partial *********" } %>
 	 <%= a.input :address1 %>
 	 <%= a.input :address2, :required => false %>
 	 <%= a.input :address3, :required => false %>

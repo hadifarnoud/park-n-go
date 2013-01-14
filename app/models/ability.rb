@@ -24,8 +24,8 @@ class Ability
         end
 
         #guest ability
-        can :index Company
-        can :index Branch
+        can :index, Company
+        can :index, Branch
     end
 
     # Define abilities for the passed in user here. For example:

@@ -5,11 +5,18 @@ class UsersController < ApplicationController
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
+    Rails.logger.debug { "******** USER NEW *********" }
   end
 
   def show
     @user = User.find(params[:id])
   end
+
+  def new
+    @user.build_address
+    Rails.logger.debug { "******** USER NEW *********" }
+  end
+
   
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'

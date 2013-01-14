@@ -59,7 +59,10 @@ ParkNGo::Application.routes.draw do
   root :to => "home#index"
 
   devise_for :users, :path_names => { :sign_up => "register" }, :path_names => { :sign_in => "login" }
-  resources :users
+  resources :users do
+    resources :addreses
+  end
+     
   resources :parking_companies
   resources :parking_branches
 
