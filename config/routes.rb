@@ -32,7 +32,7 @@ ParkNGo::Application.routes.draw do
   match '/company/show/:company_name', to: 'parking_companies#show', :as => "show_company"
   # match '/parking_companies/:id' => redirect('/company/show/%{id}')
   # match '/company/show/:id', to: 'parking_companies#show', :as => "show_company_by_id"
-
+  match '/company/branch' => redirect('/company')
   match '/company/:company_name', to: 'parking_companies#index', :as => "company_by_name" 
   
   # get "parking_companies/update"

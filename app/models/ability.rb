@@ -9,23 +9,42 @@ class Ability
         if user.has_role? :site_staff
             can :manage, :all
             cannot :destroy, User
-            cannot :destroy, Company
+            cannot :destroy, ParkingCompany
+        end
+
+        if user.has_role? :site_admin
+            can :manage, :all
+            cannot :destroy, User
+
         end
         if user.has_role? :company_admin
-            can :manage, Branch, :user_id => user.id
+            can :manage, ParkingBranch, :user_id => user.id
+            can :manage, ParkingCompany, :user_id => user.id
         end
 
         if user.has_role? :company_staff
-            can 
+            can :manage, ParkingBranch, :user_id => user.id
+            can :manage, ParkingCompany, :user_id => user.id
+            can :manage, Booking
+            can :manage, Car
+            can :manage, Service
+            can :read, Transaction
+            cannot :destroy, ParkingCompany
+            cannot :destroy, Car
         end
 
         if user.has_role? :customer
-            can
+            can :read, ParkingCompany
+            can :read, ParkingBranch
+            can :read, Transaction, :user_id => user.id
+            can :create, Booking
+            can :update, Booking, :user_id => user.id
+            can :destroy, Booking, :user_id => user.id
         end
 
         #guest ability
-        can :index, Company
-        can :index, Branch
+        can :read, ParkingCompany
+        can :read, ParkingBranch
     end
 
     # Define abilities for the passed in user here. For example:
