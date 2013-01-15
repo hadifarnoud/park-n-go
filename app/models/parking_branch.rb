@@ -3,7 +3,7 @@ class ParkingBranch < ActiveRecord::Base
   geocoded_by :full_address
   belongs_to :parking_company
   has_many :services
-  has_and_belongs_to_many :parkings
+  has_many :parkings
   validates :parking_company_id, :presence => true
   validates :branch_name, :presence => true, :uniqueness => true
   validates :telephone, :presence => true

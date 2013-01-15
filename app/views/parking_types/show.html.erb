@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<p><h4><%= @parking_type.parking_type_name  %></h4>
+<%= @parking_type.parking_type_description  %></p>
+
+<%= link_to 'Edit', edit_parking_type_path(@parking_type),:class => 'btn btn-warning' %> |
+<%= link_to 'Back', parking_types_path,:class => 'btn' %>

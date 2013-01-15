@@ -1,5 +1,11 @@
 ParkNGo::Application.routes.draw do
 
+  resources :parking_types
+
+
+  resources :parkings
+
+
   # get "parking_companies/new"
   match '/company/add', to: 'parking_companies#new', :as => "add_parking_company"
   # get "parking_branch/new"

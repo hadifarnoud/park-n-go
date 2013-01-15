@@ -1,0 +1,21 @@
+<h1>Listing parking types</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+
+<% @parking_types.each do |parking_type| %>
+  <tr>
+    <td><%= parking_type.parking_type_name  %> </td>
+    <td><%= parking_type.parking_type_description  %></td>
+    <td><%= link_to 'Edit', edit_parking_type_path(parking_type),:class => 'btn btn-warning' %> <%= link_to 'Show', parking_type,:class => 'btn btn-success' %> <%= link_to 'Delete', parking_type, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Parking type', new_parking_type_path, :class => 'btn btn-primary' %>

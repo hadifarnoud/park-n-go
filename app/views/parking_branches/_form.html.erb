@@ -1,24 +1,28 @@
 <% if can? :update, @parking_branch %>
-  <%= simple_form_for @parking_branch do |f| %>
-     <!--f.semantic_errors-->
-    <%= f.error_notification %>
-    <%= f.input :parking_company_id, :as => :select, :collection => Hash[ParkingCompany.all.map {|c| [c.company_name,c.id]}], :required => true %>
-    <%= f.input :branch_name, :required => true %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :telephone, :required => false %>
-    <%= f.input :latitude, :hint =>"Automatically filled based on address" %>
-    <%= f.input :longitude, :hint =>"Automatically filled based on address" %>
-    <%= f.input :airport, :required => true %>
-    <%= f.input :address1 %>
-    <%= f.input :address2, :required => false %>
-    <%= f.input :address3, :required => false %>
-    <%= f.input :city %>
-    <%= f.input :county %>
-    <%= f.input :postcode %>
-    <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names } %>
-    <br /> <!--f.action :submit, :button_html => {:label => 'Submit Company', :class => 'btn-primary', :disable_with => 'Wait...' }-->
-    <%= f.button :submit, 'Submit Branch', :class => 'btn-primary' %>
-    
+  <%= semantic_form_for @parking_branch do |f| %>
+     <%= f.semantic_errors %>
+     <%= f.inputs do %>
+      <%= f.input :parking_company_id, :as => :select, :collection => Hash[ParkingCompany.all.map {|c| [c.company_name,c.id]}], :required => true %>
+      <%= f.input :branch_name, :required => true %>
+      <%= f.input :email, :required => true %>
+      <%= f.input :telephone, :required => false %>
+      <%= f.input :latitude, :hint =>"Automatically filled based on address" %>
+      <%= f.input :longitude, :hint =>"Automatically filled based on address" %>
+      <%= f.input :airport, :required => true %>
+      <%= f.input :address1 %>
+      <%= f.input :address2, :required => false %>
+      <%= f.input :address3, :required => false %>
+      <%= f.input :city %>
+      <%= f.input :county %>
+      <%= f.input :postcode %>
+      <%= f.input :country, :as => :country, :priority_countries => ["United Kingdom"], :required => true  %>
+    <% end %>
+    <br /> 
+    <%= f.actions do %>
+      <%= f.action :submit, :button_html => {:class => 'btn-primary', :disable_with => 'Please Wait...' } %>
+      <%= link_to "Delete Parking Branch", :parking_branch, :confirm => 'are you sure?', :class => 'btn btn-danger', :form => @parking_branch, :method => :delete %>
+    <% end %>
+
   <% end %>
 <% else %>
   <br />
