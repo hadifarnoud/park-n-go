@@ -19,36 +19,41 @@
     <li>
     <%= link_to 'Edit account', edit_user_registration_path %>
     </li>
-    <% if current_user.has_role? :admin %>
+    <% if can? :read, @user %>
       <li>
       <%= link_to 'Users', users_path %>
       </li>
     <% end %>
-    <% if current_user.has_role? :admin %>
+    <% if can? :read, @company %>
       <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Companies <b class="caret"></b></a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <% if can? :read, @company %>
         <li>
           <%= link_to 'List All', all_companies_path %>
         </li>
+        <% end %>
+        <% if can? :create, @company %>
         <li>
           <%= link_to 'Add New Company', add_parking_company_path %>
         </li>
+        <% end %>
         <li>
           <%= link_to 'Performance Report', "#" %>
         </li>
         <li class="divider"></li>
+        <% if can? :create, @branch %>
         <li class="nav-header">Branches</li>
         <li>
           <%= link_to 'Add New Branch', add_parking_branch_path %>
         </li>
-
+        <% end %>
 
       </ul>
       </li>
 
     <% end %>
-    <% if current_user.has_role? :admin %>
+    <% if can? :read, @Feedback %>
       <li>
       <%= link_to 'Feedbacks', users_path %>
       </li>
