@@ -1,17 +1,22 @@
 <h2>Sign up</h2>
-<%= simple_form_for(resource.with_address, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.error_notification %>
-  <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %> 
-  <%= f.input :email, :required => true %>
-  <%= f.input :password, :required => true %>
-  <%= f.input :password_confirmation, :required => true %>
-  <h3>more information</h3>
-  <%= f.input :telephone, :required => false %>
-  <%= f.input :mobile, :required => true %>
-  <%= render :partial => "shared/address",:locals=>{ :f => f }  %>
-  <h3> Tax information </h3>
-  <%= f.input :vat_number, :required => false, hint: "For companies registered with HMRC and have VAT Number" %> 
-  <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+<%= semantic_form_for(resource.with_address, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+  <%#= f.error_notification %>
+  <%#= display_base_errors resource %>
+  <%= f.semantic_errors %>
+  <%= f.inputs do %>
+    <%= f.input :name, :autofocus => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :password, :required => true %>
+    <%= f.input :password_confirmation, :required => true %>
+    <h3>more information</h3>
+    <%= f.input :telephone, :required => false %>
+    <%= f.input :mobile, :required => true %>
+    <%#= render :partial => "shared/address",:locals=>{ :f => f }  %>
+    <h3> Tax information </h3>
+    <%= f.input :vat_number, :required => false, hint: "For companies registered with HMRC and have VAT Number" %> 
+  <% end %>
+  <%= f.actions do %>
+    <%= f.action :submit %>
+  <% end %>
 <% end %>
 <%= render "devise/shared/links" %>
