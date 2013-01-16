@@ -2,20 +2,23 @@
 
 <table class="table table-striped">
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>Branch</th>
+    <th>Type</th>
+    <th>Action</th>
   </tr>
-
+<% maped = Hash[ParkingBranch.all.map {|c| [c.id,c.branch_name]}] %> <!--clean these up-->
+<% maped_type = Hash[ParkingType.all.map {|c| [c.id,c.parking_type_name]}] %><!--clean these up-->
 <% @parkings.each do |parking| %>
   <tr>
-    <td><%= link_to 'Show', parking %></td>
-    <td><%= link_to 'Edit', edit_parking_path(parking) %></td>
-    <td><%= link_to 'Destroy', parking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= parking.name %> </td>
+    <td><%= maped[parking.id] %></td>
+    <td><%= maped_type[parking.parking_type_id] %> <%= parking.name %></td>
+    <td><%= link_to 'Show', parking,:class => 'btn btn-success' %> <%= link_to 'Edit', edit_parking_path(parking),:class => 'btn btn-warning' %> <%= link_to 'Destroy', parking, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-danger' %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Parking', new_parking_path %>
+<%= link_to 'New Parking', new_parking_path,:class => 'btn' %>

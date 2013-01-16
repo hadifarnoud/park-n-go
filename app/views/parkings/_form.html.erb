@@ -10,6 +10,7 @@
   		<label class=" label" for="company_branch">Branch</label>
   		<%= f.grouped_collection_select :parking_branch_id, ParkingCompany.order(:company_name), :parking_branches, :company_name, :id, :branch_name, include_blank: true %></li>
   	<%= f.input :name %>
+  	<%= f.input :parking_type_id,:as => :select, :collection => Hash[ParkingType.all.map {|c| [c.parking_type_name,c.id]}], :required => true  %>
   <% end %>
 
   <%= f.actions do %>

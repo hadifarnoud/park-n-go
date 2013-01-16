@@ -1,19 +1,23 @@
 <% if can? :update, @parking_company %>
-  <%= simple_form_for [@parking_company] do |f|  %>
-    <%= f.error_notification %>
-    <%= f.input :company_name, :required => true, :validate => { :presence => true } %>
-    <%= f.input :email, :required => true %>
-    <%= f.input :website, :required => true %>
-    <%= f.input :description, :as => :text, :input_html => { :rows => 3 }, :required => true %>
-    <%= f.input :telephone, :required => true %>
-    <%= f.input :address1,:required => true %>
-    <%= f.input :address2, :required => false %>
-    <%= f.input :address3, :required => false %>
-    <%= f.input :city, :required => true %>
-    <%= f.input :county %>
-    <%= f.input :postcode, :required => true %>
-    <%= f.country_select :country, ["United Kingdom"], { keys: :alpha3s, values: :names }, :required => true %>
-    <br /><%= f.button :submit, 'Submit Company', :class => 'btn-primary' %>
+  <%= semantic_form_for [@parking_company] do |f|  %>
+    <%= f.semantic_errors %>
+    <%= f.inputs do %>
+      <%= f.input :company_name, :required => true, :validate => { :presence => true } %>
+      <%= f.input :email, :required => true %>
+      <%= f.input :website, :required => true %>
+      <%= f.input :description, :as => :text, :input_html => { :rows => 3 }, :required => true %>
+      <%= f.input :telephone, :required => true %>
+      <%= f.input :address1,:required => true %>
+      <%= f.input :address2, :required => false %>
+      <%= f.input :address3, :required => false %>
+      <%= f.input :city, :required => true %>
+      <%= f.input :county %>
+      <%= f.input :postcode, :required => true %>
+      <%= f.input :country, :as => :country, :priority_countries => ["United Kingdom"], :required => true  %>
+    <% end %>
+    <%= f.actions do %>
+      <%= f.action :submit, :button_html => {:class => 'btn-primary', :disable_with => 'Please Wait...' } %>
+    <% end %>
   <% end %>
 <% else %>
   <br />

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<p><h4><%= @parking.name  %></h4></p>
+<p>Parking type: <%= @parking.parking_type_id  %></p>
+<p>Parking Branch: <%= @parking.parking_branch_id %></p>
 
 <%= link_to 'Edit', edit_parking_path(@parking),:class => 'btn btn-warning' %> |
 <%= link_to 'Back', parkings_path,:class => 'btn' %>
