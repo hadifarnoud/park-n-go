@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :cars
   has_many :addresses, :dependent => :destroy
   belongs_to :picture
-  belongs_to :booking
+  has_many :bookings
   accepts_nested_attributes_for :addresses, allow_destroy: true
   accepts_nested_attributes_for :transactions
   accepts_nested_attributes_for :cars
