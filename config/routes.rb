@@ -1,5 +1,8 @@
 ParkNGo::Application.routes.draw do
 
+  resources :feedbacks
+
+
   resources :parking_types
 
 
