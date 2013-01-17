@@ -58,6 +58,11 @@
       <%= link_to 'Feedbacks', feedbacks_path %>
       </li>
     <% end %>
+    <% if can? :read, @Car %>
+      <li>
+      <%= link_to 'Cars', cars_path %>
+      </li>
+    <% end %>
     <% if current_user.has_role? :admin %>
       <li>
       <%= link_to 'Current Bookings', current_bookings_path %>

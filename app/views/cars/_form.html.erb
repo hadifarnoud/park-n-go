@@ -1,6 +1,15 @@
 <%= semantic_form_for @car do |f| %>
-  <%= f.inputs  %>
-
+	<%= f.semantic_errors %>
+  <%= f.inputs do %>
+  <%= f.input :user_id, :as => :select, :collection => Hash[User.all.map {|c| [c.name,c.id]}], :required => true %>
+  <%= f.input :car_make %>
+  <%= f.input :car_model %>
+  <%= f.input :car_colour %>
+  <%= f.input :car_year %>
+  <%= f.input :car_milage %>
+  <%= f.input :car_picture %>
+  <%= f.input :car_last_state_report %>
+  <% end %>
 
   <%= f.actions do %>
     <%= f.action :submit, :as => :input %>
