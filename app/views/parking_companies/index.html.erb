@@ -2,3 +2,4 @@
 <% @parking_companies.each do |i| %>
   <p>Company: <%=link_to i.company_name, show_company_path(i.company_name) %></p>
 <% end %>
+<%= link_to 'New Company', add_parking_company_path, :class => "btn btn-primary"  %>

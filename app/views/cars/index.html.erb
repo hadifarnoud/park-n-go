@@ -23,7 +23,7 @@
     <td><%= car.car_milage %></td>
     <td><%= car.car_picture %></td>
     <td><%= car.car_last_state_report %></td>
-    <td><%= link_to 'Show', car, :class => "btn btn-success" %> <%= link_to 'Edit', edit_car_path(car), :class => "btn btn-warning" %> <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+    <td><%= link_to 'Show', car, :class => "btn btn-success" %> <%= link_to 'Edit', edit_car_path(car), :class => "btn btn-warning" %> <%= link_to 'Delete', car, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
