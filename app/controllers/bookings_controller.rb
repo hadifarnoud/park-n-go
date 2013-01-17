@@ -10,6 +10,12 @@ class BookingsController < ApplicationController
     end
   end
 
+    def current
+    @bookings = Booking.all
+    @bookings_by_date = @bookings.group_by { |b| b.pick_up.strftime("%F").to_date }
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+
   # GET /bookings/1
   # GET /bookings/1.json
   def show

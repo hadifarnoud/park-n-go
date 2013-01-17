@@ -1,0 +1,16 @@
+<h1> Current Bookings </h1>
+<div id="bookings">
+<% Rails.logger.info "***** if *****" %>
+<%= calendar @date do |date| %>
+	<%= date.day %>
+	 <% if @bookings_by_date[date] %>
+	 <%= Rails.logger.info "***** Inside if *****" %>
+	 	<ul>
+	 		<% @bookings_by_date[date].each do |booking| %>
+	 			<li><%= link_to "#{booking.drop_off.strftime("%l:%M %p")}", booking %></li>
+ 			<% end %>
+	 	</ul>
+	 <% end %>
+<% end %>
+
+</div>

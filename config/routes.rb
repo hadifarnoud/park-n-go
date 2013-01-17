@@ -1,16 +1,7 @@
 ParkNGo::Application.routes.draw do
 
-  resources :bookings
 
-
-  resources :feedbacks
-
-
-  resources :parking_types
-
-
-  resources :parkings
-
+  match '/bookings/current', to: 'bookings#current', :as => "current_bookings"
 
   # get "parking_companies/new"
   match '/company/add', to: 'parking_companies#new', :as => "add_parking_company"
@@ -74,7 +65,17 @@ ParkNGo::Application.routes.draw do
   resources :users do
     resources :addreses
   end
-     
+
+  resources :bookings
+
+
+  resources :feedbacks
+
+
+  resources :parking_types
+
+
+  resources :parkings
   resources :parking_companies
   resources :parking_branches
 
