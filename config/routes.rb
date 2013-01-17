@@ -1,6 +1,9 @@
 ParkNGo::Application.routes.draw do
 
 
+  resources :cars
+
+
   match '/bookings/current', to: 'bookings#current', :as => "current_bookings"
 
   # get "parking_companies/new"

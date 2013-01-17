@@ -1,17 +1,23 @@
 <h1>Listing bookings</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>User</th>
+    <th>Transaction ID</th>
+    <th>Drop off</th>
+    <th>Pick up</th>
+    <th>Car</th>
+    <th>Actions</th>
   </tr>
 
 <% @bookings.each do |booking| %>
   <tr>
-    <td><%= link_to 'Show', booking %></td>
-    <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-    <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= booking.user.name %></td>
+    <td><%= booking.transaction_id %></td>
+    <td><%= booking.drop_off %></td>
+    <td><%= booking.pick_up %></td>
+    <td><%= booking.car.car_make + " " + booking.car.car_model %></td>
+    <td><%= link_to 'Show', booking %> <%= link_to 'Edit', edit_booking_path(booking) %> <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

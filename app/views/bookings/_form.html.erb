@@ -2,12 +2,12 @@
   <%= f.inputs do %>
   	<%= f.input :transaction_id, :input_html => { :disabled => true } %>
   	<%= f.input :user_id, :as => :select, :collection => Hash[User.all.map {|c| [c.name,c.id]}], :required => true %>
-  	<%= f.input :car_id,  :as => :select, :collection => Hash[Car.all.map {|c| [c.car_make+" "+c.car_model ,c.id]}], :required => true %>
-  	<%= f.input :pick_up, :as => :string %>
-  	<%= f.input :drop_off,:as => :string %>
-  	<%= f.input :flight_inbound %>
+  	<%= f.input :car_id,  :as => :select, :collection => Hash[Car.all.map {|c| [c.car_make+" "+c.car_model ,c.id]}], :required => false %>
+  	<%= f.input :pick_up, :as => :string, :required => true %>
+  	<%= f.input :drop_off,:as => :string, :required => true %>
+  	<%= f.input :flight_inbound  %>
   	<%= f.input :flight_outbound %>
-  	<%= f.input :where_i_parked %>
+  	<%= f.input :where_i_parked  %>
   <% end %>
 
   <%= f.actions do %>
