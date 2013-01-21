@@ -15,7 +15,4 @@ class ParkingCompany < ActiveRecord::Base
     "#{address1}, #{address2}, #{address3}, #{city}, #{county}, #{postcode}, #{country}"
   end
   
-  def postcode=(postcode)
-    super(GoingPostal.postcode?(postcode, 'GB')) if postcode
-  end
 end
