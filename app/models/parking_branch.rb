@@ -13,7 +13,7 @@ class ParkingBranch < ActiveRecord::Base
   validates :country, :presence => true
   validates :airport, :presence => true
 
-  after_validation :geocode, if => :full_address_changed?
+  after_validation :geocode, :if => :full_address_changed?
 
   def full_address
     "#{address1}, #{address2}, #{address3}, #{city}, #{county}, #{postcode}, #{country}"
