@@ -13,6 +13,7 @@
 <%= render :partial => 'company_branches' %>
 </div>
 <% if can? :update, @parking_company %>
-	<%= link_to 'Edit Company', edit_parking_company_path(@parking_company.id), :class => "btn btn-large btn-primary" %>
+	<%= link_to 'Edit Company', edit_parking_company_path(@parking_company.id), :class => "btn btn-large btn-warning" %>  
 <% end %>
+<%= link_to "Add a branch", add_parking_branch_path, :class => "btn btn-large btn-success" %>
 </div>

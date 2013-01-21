@@ -17,8 +17,7 @@ class ParkingBranchesController < ApplicationController
   end
   
   def new
-    @parking_branch = ParkingBranch.new
-
+    @parking_branch = ParkingBranch.new 
   end
 
   def edit

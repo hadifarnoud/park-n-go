@@ -7,7 +7,6 @@
                 </tr>
         </thead>
     <tbody>
-    	<%= @parking_company.inspect %> #remove airport from company
 		<% @parking_company.parking_branches.each do |b| %>
 		<tr>
 			<td><%= link_to b.branch_name, show_company_branch_path(b.id) %></td>
