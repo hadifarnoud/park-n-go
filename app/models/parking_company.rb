@@ -14,5 +14,4 @@ class ParkingCompany < ActiveRecord::Base
   def full_address
     "#{address1}, #{address2}, #{address3}, #{city}, #{county}, #{postcode}, #{country}"
   end
-  
 end

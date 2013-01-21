@@ -11,6 +11,7 @@
     <i class="icon-road icon-fix"></i><li><%= @parking_branch.full_address %></li>
 </ul>
 <div class="map"><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@parking_branch.latitude}%2C#{@parking_branch.longitude}" %></div>
+<div class="content">
 <%= link_to 'Edit Branch', edit_parking_branch_path(@parking_branch.id), :class => "btn btn-large btn-primary" %>
-
+<%= link_to "Delete Parking Branch", @parking_branch, :confirm => 'are you sure?', :class => 'btn btn-large btn-danger', :form => @parking_branch, :method => :delete %></div>
 </div>
