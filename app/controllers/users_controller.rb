@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
-    Rails.logger.debug { "******** USER index *********" }
   end
 
   def show
@@ -14,7 +13,6 @@ class UsersController < ApplicationController
 
   def new
     @user.build_address
-    Rails.logger.debug { "******** USER NEW *********" }
   end
 
   
