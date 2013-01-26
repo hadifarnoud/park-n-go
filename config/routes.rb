@@ -1,5 +1,17 @@
+require 'api_constraints'
 ParkNGo::Application.routes.draw do
 
+  namespace :api, defaults: {format: 'json'} do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+        resources :bookings
+        resources :feedbacks
+        resources :parking_types
+        resources :parkings
+        resources :parking_companies
+        resources :parking_branches
+        resources :cars
+    end
+  end
 
   resources :cars
 
@@ -81,5 +93,8 @@ ParkNGo::Application.routes.draw do
   resources :parkings
   resources :parking_companies
   resources :parking_branches
+
+
+
 
 end
