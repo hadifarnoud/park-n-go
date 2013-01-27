@@ -3,3 +3,5 @@ class Parking < ActiveRecord::Base
   belongs_to :parking_branch
   has_and_belongs_to_many :parking_types
 end
+
+

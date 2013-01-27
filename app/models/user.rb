@@ -18,6 +18,12 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :transactions
   accepts_nested_attributes_for :cars
 
+  before_create :default_role
+
+  def default_role
+    self.role_ids = 5
+  end
+
   def with_address
     self.addresses.build if self.addresses.empty?
     self
