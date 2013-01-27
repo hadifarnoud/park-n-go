@@ -34,3 +34,4 @@ gem 'formtastic'
 gem "formtastic-plus-bootstrap" ,">= 1.1.4"
 gem 'going_postal'
 gem 'meta_request', '>=0.2.1', :group => :development
+gem 'has_price'
