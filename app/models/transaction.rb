@@ -5,4 +5,10 @@ class Transaction < ActiveRecord::Base
   belongs_to :user
   belongs_to :parking_branch
   has_many :bookings
+
+  before_create :calculated_points
+
+  def calculated_points
+  	#fix price and gateway first
+  end
 end
