@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-
+  before_filter :authenticate_user!
   respond_to :json, :xml
   def index
     @cars = Car.all
