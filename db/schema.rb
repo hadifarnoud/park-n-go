@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116024926) do
+ActiveRecord::Schema.define(:version => 20130128011742) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address1"
@@ -129,11 +129,13 @@ ActiveRecord::Schema.define(:version => 20130116024926) do
   end
 
   create_table "prices", :force => true do |t|
-    t.integer  "price_id"
     t.decimal  "price_amount"
     t.string   "price_currency"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.float    "base_price"
+    t.float    "duration"
+    t.string   "price_rule"
   end
 
   create_table "roles", :force => true do |t|
@@ -148,9 +150,7 @@ ActiveRecord::Schema.define(:version => 20130116024926) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "services", :force => true do |t|
-    t.integer  "service_id"
     t.string   "service_name"
-    t.integer  "price_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

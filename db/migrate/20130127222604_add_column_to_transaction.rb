@@ -1,4 +1,4 @@
-class add_columnToTransaction < ActiveRecord::Migration
+class AddColumnToTransaction < ActiveRecord::Migration
   def up
   	add_column :prices, :base_price, :float
   	add_column :prices, :duration, :float
