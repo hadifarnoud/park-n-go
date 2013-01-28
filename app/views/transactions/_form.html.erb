@@ -1,9 +1,12 @@
 <%= semantic_form_for @transaction do |f| %>
   <%= f.inputs do %>
-  <%= f.input :branch_id, :as => :select, :collection => Hash[ParkingBranch.all.map {|c| [c.branch_name,c.id]}], :required => true %>
+  <%= f.input :parking_branch_id, :as => :select, :collection => Hash[ParkingBranch.all.map {|c| [c.branch_name,c.id]}], :required => true %>
   <%= f.input :parking_id, :as => :select, :collection => Hash[Parking.all.map {|c| [c.name,c.id]}], :required => true %>
+  <%= f.input :service_id, :as => :select, :collection => Hash[Service.all.map {|c| [c.name,c.id]}], :required => true %>
+  <%= f.input :user_id, :as => :select, :collection => Hash[User.all.map {|c| [c.name,c.id]}], :required => true %>
   <%= f.input :currency, :as => :select, :collection => {'Great Britain Pound' => 'GBP'} %>
   <%= f.input :device %>
+  <%= f.input :point, :input_html => {:disabled => true} %>
   <% end %>
 
   <%= f.actions do %>

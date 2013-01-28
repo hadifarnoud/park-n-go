@@ -1,6 +1,12 @@
 require 'api_constraints'
 ParkNGo::Application.routes.draw do
 
+  resources :services
+
+
+  resources :prices
+
+
   resources :transactions
 
 
