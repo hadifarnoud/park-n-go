@@ -1,15 +1,15 @@
-class AddColumnToTransaction < ActiveRecord::Migration
+class add_columnToTransaction < ActiveRecord::Migration
   def up
-  	addcolumn :prices, :base_price, :float
-  	addcolumn :prices, :duration, :float
-  	addcolumn :prices, :price_rule, :string
-  	removecolumn :prices, :price_id
+  	add_column :prices, :base_price, :float
+  	add_column :prices, :duration, :float
+  	add_column :prices, :price_rule, :string
+  	remove_column :prices, :price_id
   end
 
   def down
-  	addcolumn :prices, :price_id, :integer
-  	removecolumn :prices, :base_price
-  	removecolumn :prices, :duration
-  	removecolumn :prices, :price_rule
+  	add_column :prices, :price_id, :integer
+  	remove_column :prices, :base_price
+  	remove_column :prices, :duration
+  	remove_column :prices, :price_rule
   end
 end
